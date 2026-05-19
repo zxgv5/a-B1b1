@@ -5,12 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tutu.myblbl.core.common.content.ContentFilter
 import com.tutu.myblbl.model.video.VideoModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class HotViewModel(
     private val repository: HotFeedRepository,
@@ -105,8 +103,6 @@ class HotViewModel(
     }
 
     private suspend fun List<VideoModel>.filterForDisplay(): List<VideoModel> {
-        return withContext(Dispatchers.Default) {
-            ContentFilter.filterVideos(appContext, this@filterForDisplay)
-        }
+        return ContentFilter.filterVideos(appContext, this@filterForDisplay)
     }
 }
