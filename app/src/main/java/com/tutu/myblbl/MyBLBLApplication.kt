@@ -10,7 +10,6 @@ import com.tutu.myblbl.core.common.settings.AppSettingsDataStore
 import com.tutu.myblbl.core.lifecycle.AppBackgroundMonitor
 import com.tutu.myblbl.core.ui.base.BaseActivity
 import com.tutu.myblbl.core.ui.image.ImageLoader
-import com.tutu.myblbl.core.ui.image.MyBLBLCoilInitializer
 import com.tutu.myblbl.di.appModules
 import com.tutu.myblbl.feature.home.RecommendFeedRepository
 import com.tutu.myblbl.feature.player.PlayerInstancePool
@@ -58,8 +57,7 @@ class MyBLBLApplication : Application() {
         // Settings 必须在 Network 之前：CookieManager.loadCookiesFromPrefs 依赖 AppSettingsDataStore cache
         trace("initSettings", startMs) { initSettings() }
         trace("initNetwork", startMs) { initNetwork() }
-        trace("initCoil", startMs) { MyBLBLCoilInitializer.bootstrap(this) }
-        // 提前算好图片质量等级缓存，让首屏 RecyclerView bind 时零 DI 查询
+        // 图片质量预热：提前缓存质量等级，让首屏 RecyclerView bind 时零 DI 查询
         ImageLoader.prewarm()
         trace("initBackgroundMonitor", startMs) { AppBackgroundMonitor.init(this) }
         // Application onCreate 末尾立刻 schedule activity_main 预 inflate：
