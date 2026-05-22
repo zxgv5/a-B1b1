@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/click_view"
     android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:layout_marginStart="@dimen/px15"
         android:layout_marginEnd="@dimen/px15">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -40,7 +40,7 @@
             android:progressDrawable="@drawable/default_progress_bar"
             android:visibility="gone" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
@@ -49,13 +49,13 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/icon_play_count"
                 android:layout_width="@dimen/px30"
                 android:layout_height="@dimen/px30"
-                app:srcCompat="@drawable/ic_video_play_count" />
+                android:src="@drawable/ic_video_play_count" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/text_play_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,14 +66,14 @@
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/px22" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/icon_danmaku"
                 android:layout_width="@dimen/px30"
                 android:layout_height="@dimen/px30"
                 android:layout_marginStart="@dimen/px10"
-                app:srcCompat="@drawable/ic_video_danmaku" />
+                android:src="@drawable/ic_video_danmaku" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/text_danmaku_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,9 +83,9 @@
                 android:text="@string/app_name"
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/px22" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/text_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
             android:textColor="@color/textColor"
             android:textSize="@dimen/px22" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|end"
@@ -111,7 +111,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/text_interaction_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 android:textSize="@dimen/px20"
                 android:visibility="gone" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/text_charge_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -139,10 +139,10 @@
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/px20"
                 android:visibility="gone" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
     </com.tutu.myblbl.core.ui.widget.VideoCoverFrameLayout>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:id="@+id/layout_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -152,14 +152,14 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/icon_playing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:visibility="gone" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -171,9 +171,9 @@
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="@dimen/px31"
             android:textStyle="bold" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <TextView
         android:id="@+id/text_overflow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
         android:textStyle="bold"
         android:visibility="gone" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:id="@+id/layout_owner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -214,7 +214,7 @@
                 app:srcCompat="@drawable/ic_video_up"
                 app:tint="?android:attr/textColorSecondary" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/text_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -231,7 +231,7 @@
                 android:visibility="gone" />
         </FrameLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/textView_owner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -242,24 +242,5 @@
             android:text="@string/app_name"
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="@dimen/px22" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/icon_history_device"
-            android:layout_width="@dimen/px30"
-            android:layout_height="@dimen/px30"
-            android:layout_marginEnd="@dimen/px5"
-            android:visibility="gone"
-            app:srcCompat="@drawable/ic_history_device_mobile"
-            app:tint="?android:attr/textColorSecondary" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_history_view_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:text="@string/app_name"
-            android:textColor="?android:attr/textColorSecondary"
-            android:textSize="@dimen/px22"
-            android:visibility="gone" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-</androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
+</LinearLayout>
