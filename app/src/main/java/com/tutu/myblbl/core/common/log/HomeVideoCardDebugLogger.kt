@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package com.tutu.myblbl.core.common.log
 
 import com.tutu.myblbl.model.video.VideoModel

@@ -15,7 +15,7 @@ import com.kuaishou.akdanmaku.ui.DanmakuView
 import com.tutu.myblbl.feature.player.PlaybackStartupTrace
 import com.tutu.myblbl.core.common.log.AppLog
 import com.tutu.myblbl.model.dm.DmModel
-import com.tutu.myblbl.core.common.ext.isVipColorfulDanmakuAllowed
+import com.tutu.myblbl.core.common.ext.isVipColorfulDanmakuAllowed as isVipColorfulDanmakuSettingAllowed
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -1337,7 +1337,7 @@ class MyPlayerDanmakuController(
     }
 
     private fun isVipColorfulDanmakuAllowed(): Boolean {
-        return context.isVipColorfulDanmakuAllowed()
+        return isVipColorfulDanmakuSettingAllowed()
     }
 
     private fun baseThreshold(): Int {

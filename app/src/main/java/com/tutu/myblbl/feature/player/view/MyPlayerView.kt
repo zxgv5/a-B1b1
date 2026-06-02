@@ -46,8 +46,8 @@ import com.tutu.myblbl.model.subtitle.SubtitleInfoModel
 import com.tutu.myblbl.model.video.quality.AudioQuality
 import com.tutu.myblbl.model.video.quality.VideoCodecEnum
 import com.tutu.myblbl.model.video.quality.VideoQuality
-import com.tutu.myblbl.core.common.ext.isAdvancedDanmakuEnabled
 import com.tutu.myblbl.core.common.ext.getDanmakuSmartFilterLevel
+import com.tutu.myblbl.core.common.ext.isAdvancedDanmakuEnabled
 import com.tutu.myblbl.feature.player.LiveQualityInfo
 import com.tutu.myblbl.feature.player.PlaybackStartupTrace
 import com.tutu.myblbl.feature.player.sponsor.SponsorSegment
@@ -2024,14 +2024,14 @@ class MyPlayerView @JvmOverloads constructor(
     private fun buildDanmakuSettingsSnapshot(): MyPlayerDanmakuController.SettingsSnapshot {
         return MyPlayerDanmakuController.SettingsSnapshot(
             enabled = settingView?.getDmEnable() ?: true,
-            showAdvancedDanmaku = context.isAdvancedDanmakuEnabled(),
+            showAdvancedDanmaku = isAdvancedDanmakuEnabled(),
             alpha = settingView?.getDmAlpha() ?: 1f,
             textSize = settingView?.getDmTextScaleParam() ?: 40,
             speed = settingView?.getDmSpeedParam() ?: 4,
             screenArea = settingView?.getScreenPartParam() ?: 3,
             allowTop = settingView?.getDmAllowTop() ?: true,
             allowBottom = settingView?.getDmAllowBottom() ?: true,
-            smartFilterLevel = context.getDanmakuSmartFilterLevel(),
+            smartFilterLevel = getDanmakuSmartFilterLevel(),
             mergeDuplicate = settingView?.getDmMergeDuplicate() ?: true
         )
     }
