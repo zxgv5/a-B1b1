@@ -14,6 +14,7 @@ import com.kuaishou.akdanmaku.ui.DanmakuPlayer
 import com.kuaishou.akdanmaku.ui.DanmakuView
 import com.tutu.myblbl.feature.player.DanmakuFilterContext
 import com.tutu.myblbl.feature.player.PlaybackStartupTrace
+import com.tutu.myblbl.feature.player.danmaku.DanmakuTrackSpacing
 import com.tutu.myblbl.core.common.log.AppLog
 import com.tutu.myblbl.model.dm.DmModel
 import com.tutu.myblbl.core.common.ext.isVipColorfulDanmakuAllowed as isVipColorfulDanmakuSettingAllowed
@@ -96,7 +97,8 @@ class MyPlayerDanmakuController(
         val allowTop: Boolean,
         val allowBottom: Boolean,
         val smartFilterLevel: Int,
-        val mergeDuplicate: Boolean
+        val mergeDuplicate: Boolean,
+        val trackSpacing: String = "standard"
     )
 
     private data class PreparedWindow(
@@ -477,7 +479,8 @@ class MyPlayerDanmakuController(
             durationMs = durationMs,
             rollingDurationMs = durationMs,
             screenPart = snapshot.screenArea.toDanmakuScreenPart(),
-            fontBorder = fontBorder
+            fontBorder = fontBorder,
+            trackSpacingFactor = DanmakuTrackSpacing.fromPrefValue(snapshot.trackSpacing).factor
         )
         val filterChanged = applyTypeFilterState(
             config = newConfig,
