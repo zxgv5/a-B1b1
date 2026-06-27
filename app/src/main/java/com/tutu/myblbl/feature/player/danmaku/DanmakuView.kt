@@ -6,7 +6,6 @@ import android.os.SystemClock
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
-import com.tutu.myblbl.core.emote.ReplyEmotePanelRepository
 import android.util.Log
 import com.tutu.myblbl.feature.player.danmaku.Danmaku
 import java.util.concurrent.atomic.AtomicLong
@@ -189,7 +188,6 @@ class DanmakuView @JvmOverloads constructor(
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        ReplyEmotePanelRepository.warmup(context)
         updateViewportIfNeeded()
         startPerfLoggingIfNeeded()
     }
@@ -403,7 +401,6 @@ class DanmakuView @JvmOverloads constructor(
             speedLevel = 4,
             area = 1f,
             laneDensity = DanmakuLaneDensity.Standard,
-            showHighLikeIcon = true,
         )
 
     private class DebugStatsCollector {
