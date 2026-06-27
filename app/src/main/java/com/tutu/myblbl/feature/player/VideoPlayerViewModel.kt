@@ -22,13 +22,10 @@ import com.google.gson.Gson
 import com.tutu.myblbl.R
 import com.tutu.myblbl.core.common.media.VideoCodecSupport
 
-import com.tutu.myblbl.model.dm.AdvancedDanmakuParser
 import com.tutu.myblbl.model.dm.DmColorfulStyleParser
 import com.tutu.myblbl.model.dm.DmMaskInfo
 import com.tutu.myblbl.model.dm.DmMaskRepository
 import com.tutu.myblbl.model.dm.DmModel
-import com.tutu.myblbl.model.dm.SpecialDanmakuModel
-import com.tutu.myblbl.model.dm.SpecialDanmakuParser
 import com.tutu.myblbl.model.interaction.InteractionModel
 import com.tutu.myblbl.model.interaction.InteractionVariableModel
 import com.tutu.myblbl.feature.player.interaction.InteractionEngine
@@ -473,7 +470,6 @@ class VideoPlayerViewModel(
     // ==================== 弹幕系统（转发到 DanmakuPlaybackController）====================
     val danmaku: StateFlow<List<DmModel>> get() = danmakuController.danmaku
     internal val danmakuUpdates: SharedFlow<DanmakuPlaybackController.DanmakuUpdate> get() = danmakuController.danmakuUpdates
-    val specialDanmaku: StateFlow<List<SpecialDanmakuModel>> get() = danmakuController.specialDanmaku
     internal val dmMaskState: StateFlow<DanmakuPlaybackController.DmMaskState> get() = danmakuController.dmMaskState
     var onDmMaskReady: ((maskUrl: String, cid: Long, fps: Int) -> Unit)?
         get() = danmakuController.onDmMaskReady
