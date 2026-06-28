@@ -1,6 +1,7 @@
 package com.tutu.myblbl.feature.player.danmaku
 
 import android.content.Context
+import com.tutu.myblbl.core.common.ext.isVipColorfulDanmakuAllowed
 import com.tutu.myblbl.core.common.log.AppLog
 import com.tutu.myblbl.feature.player.DanmakuFilterContext
 import com.tutu.myblbl.feature.player.PlaybackStartupTrace
@@ -293,8 +294,9 @@ class BlblDanmakuController(
                     "dropped=${filtered.size - prepared.size}"
             )
         }
-        // 3. 转 Danmaku
-        return prepared.toDanmakus()
+        // 3. 转 Danmaku（读 VIP 渐变开关，关闭时 vipGradient 全 false，走普通路径零开销）
+        val allowVipColorful = isVipColorfulDanmakuAllowed()
+        return prepared.toDanmakus(allowVipColorful = allowVipColorful)
     }
 
     /** 把预处理结果注入引擎（操作 View，必须在主线程调用）。 */
