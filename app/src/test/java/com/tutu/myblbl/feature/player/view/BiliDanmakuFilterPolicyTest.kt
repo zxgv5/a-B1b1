@@ -1,5 +1,6 @@
 package com.tutu.myblbl.feature.player.view
 
+import com.tutu.myblbl.feature.player.danmaku.DanmakuSettingsSnapshot
 import com.tutu.myblbl.feature.player.DanmakuFilterContext
 import com.tutu.myblbl.model.dm.DmModel
 import com.tutu.myblbl.model.proto.DanmuWebPlayerConfigProto
@@ -109,8 +110,8 @@ class BiliDanmakuFilterPolicyTest {
     private fun settings(
         allowTop: Boolean = true,
         allowBottom: Boolean = true
-    ): MyPlayerDanmakuController.SettingsSnapshot =
-        MyPlayerDanmakuController.SettingsSnapshot(
+    ): DanmakuSettingsSnapshot =
+        DanmakuSettingsSnapshot(
             enabled = true,
             alpha = 1f,
             textSize = 40,

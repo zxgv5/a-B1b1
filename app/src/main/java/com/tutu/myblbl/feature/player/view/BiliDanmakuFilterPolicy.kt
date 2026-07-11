@@ -3,6 +3,7 @@ package com.tutu.myblbl.feature.player.view
 import com.kuaishou.akdanmaku.data.DanmakuItemData
 import com.tutu.myblbl.core.common.log.AppLog
 import com.tutu.myblbl.feature.player.DanmakuFilterContext
+import com.tutu.myblbl.feature.player.danmaku.DanmakuSettingsSnapshot
 import com.tutu.myblbl.model.dm.DmModel
 import com.tutu.myblbl.model.proto.DanmuWebPlayerConfigProto
 import com.tutu.myblbl.model.proto.DmRestrictPeriodProto
@@ -16,7 +17,7 @@ internal object BiliDanmakuFilterPolicy {
     fun apply(
         items: List<DmModel>,
         context: DanmakuFilterContext,
-        settings: MyPlayerDanmakuController.SettingsSnapshot?,
+        settings: DanmakuSettingsSnapshot?,
         stage: String
     ): List<DmModel> {
         if (items.isEmpty()) return items
@@ -119,7 +120,7 @@ internal object BiliDanmakuFilterPolicy {
     private fun isTypeAllowedByBiliSetting(
         item: DmModel,
         playerConfig: DanmuWebPlayerConfigProto,
-        settings: MyPlayerDanmakuController.SettingsSnapshot?
+        settings: DanmakuSettingsSnapshot?
     ): Boolean {
         if (!playerConfig.dmSwitch) return false
         val isColored = item.colorful != 0 ||
